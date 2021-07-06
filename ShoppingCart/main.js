@@ -85,7 +85,7 @@ new Vue({
         },
         deleteItem: function (index) {
             // console.log(this);
-            this.items.splice(index, 1);
+            this.cart.splice(index, 1);
         },
         addCart: function (ID) {
             ifFind = false
