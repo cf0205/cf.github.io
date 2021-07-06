@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <a href="#" class="logo"><img src="./img/pokeball.png" alt=""></a>
+            <nav>
+                <a href="main.html">link1</a>
+                <a href="index.html">link2</a>
+                <a href="#">link3</a>
+                <a href="#">link4</a>
+                <a href="#">link5</a>
+            </nav>
+        </div>
+        <div class="banner">
+            <img src="https://picsum.photos/id/125/1200/300" alt="">
+        </div>
+        <!-- <img src="./img/[s04].10031-ピカチュウVMAX.jpg" alt=""> -->
+        <div class="container">
+            <div class="group-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="image"></th>
+                            <th class="name">商品名</th>
+                            <th class="price">價格</th>
+                            <th class="count">數量</th>
+                            <th class="subtotal">小計</th>
+                            <th class="summit"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="item" v-for="(item,index) in cart">
+                            <td class="image"><img v-bind:src="item.url"></td>
+                            <td class="name">{{item.name}}</td>
+                            <td class="price">{{item.price}}</td>
+                            <td class="count">
+                                <input type="button" value="-" v-on:click="handleSub(item)">
+                                {{item.count}}
+                                <input type="button" value="+" v-on:click="handlePlus(item)">
+                            </td>
+                            <td class="subtotal">{{item.price*item.count}}</td>
+                            <td class="summit">
+                                <input type="button" value="刪除" v-on:click="deleteItem(index)">
+                                <!-- <button @click="delete(index)">刪除</button> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <div class="item" v-for="item in items">
+                    <h3>{{item.name}}</h2>
+                        <img v-bind:src="item.url">
+                </div> -->
+            </div>
+        </div>
+        <div>
+            <input type="button" value="Log" v-on:click="consoleLog">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
