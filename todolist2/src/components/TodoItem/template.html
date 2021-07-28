@@ -1,0 +1,10 @@
+<div class="todoItem">
+    <input type="text" v-model="edit" v-if="edit !==null" v-focus @keyup.enter="submitHandler"
+        @keyup.esc="cancelHandler" @blur="cancelHandler">
+    <template v-else>
+        <input type="checkbox" v-model="complete">
+        <label @dblclick="editHandler">{{todo.content}}</label>
+        <button class="destroy" @click="destroyHandler" >X</button>
+    </template>
+
+</div>
